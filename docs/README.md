@@ -1,6 +1,4 @@
-# Online Bier KI
-
-<img src="BAI.PNG" width="50">
+<img src="BAI.PNG" width="80">
 
 ## Zusammenfassung
 Die Online Bier KI ist
