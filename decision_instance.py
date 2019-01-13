@@ -4,7 +4,7 @@
 class Instance:
     """Class for handling the training instances."""
 
-    def __init__(self, truth):
+    def __init__(self, truth=False):
         """Fill default values."""
         self.truth = truth
         self.idx = [None, 'idx']
