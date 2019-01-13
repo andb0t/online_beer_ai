@@ -13,7 +13,7 @@ def recommend(data):
     clf = DecisionTreeClassifier()
     with open(os.path.join('models', 'DT.pkl'), 'rb') as file:
         clf = pickle.load(file)
-    df_data = pd.DataFrame(data=data)
+    df_data = pd.DataFrame(data=data, columns=data.keys())
     print('Analyzing')
     print(df_data)
     result = clf.predict(df_data)
