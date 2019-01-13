@@ -16,7 +16,7 @@ Ausserdem bieten wir
 
 
 ## Entwicklungsstatus
-Es gibt bisher nur diese Website, damit die Leute was zum Klicken haben und die Autoren nicht als Aufschneider dastehen.
+Es gibt nur diese Website, damit die Leute was zum Klicken haben und die Autoren nicht als Aufschneider dastehen.
 
 
 ## Mal im Ernst
