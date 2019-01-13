@@ -1,5 +1,4 @@
 """Class for handling the training instances."""
-import datetime
 
 
 class Instance:
@@ -8,34 +7,35 @@ class Instance:
     def __init__(self, truth):
         """Fill default values."""
         self.truth = truth
-        self.idx = 0
-        self.time = datetime.datetime.now().hour
-        self.n_ppl = None
-        self.decision = None
+        self.idx = [None, 'idx']
+        self.time = [None, 'time']
+        self.n_ppl = [None, 'n_ppl']
+        self.decision = [None, 'decision']
 
     def fill(self, data):
         """Fill real values."""
-        self.idx = data['idx']
-        self.time = data['time']
-        self.n_ppl = data['n_ppl']
+        self._fill(data, self.idx)
+        self._fill(data, self.time)
+        self._fill(data, self.n_ppl)
         if self.truth:
-            self.decision = data['decision']
+            self._fill(data, self.decision)
 
     def _join_features(self):
-        data = [self.idx]
-        header = ['idx']
-        # time
-        header.append('time')
-        data.append(self.time)
-        # n_ppl
-        header.append('n_ppl')
-        data.append(self.n_ppl)
-        # decision
+        data = []
+        header = []
+        self._add_feature(data, header, self.idx)
+        self._add_feature(data, header, self.time)
+        self._add_feature(data, header, self.n_ppl)
         if self.truth:
-            header.append('decision')
-            data.append(self.decision)
-        # return
+            self._add_feature(data, header, self.decision)
         return data, header
+
+    def _fill(self, data, value):
+        value[0] = data[value[1]]
+
+    def _add_feature(self, data, header, value):
+        data.append(value[0])
+        header.append(value[1])
 
     def header(self):
         """Return header."""
